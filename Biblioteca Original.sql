@@ -69,18 +69,18 @@ CREATE TABLE Emprestimos (
 CREATE TABLE Precos ( 
     Preco_ID            INT PRIMARY KEY IDENTITY, -------------------- Chave primaria são chaves únicas que não mudam--
     Livro_ID            INT FOREIGN key REFERENCES Livros(Livro_ID), --Fazendo uma referencia a tabela Livros usando o FOREING--
-    Preco_Venda         DECIMAL (10,2), -------------------------------Preço de venda do livro--
-    Preco_Emprestimo    DECIMAL (10,2), -------------------------------Preço do emprestimo do livro--
+    Preco_Venda         NUMERIC (10,2), -------------------------------Preço de venda do livro--
+    Preco_Emprestimo    NUMERIC (10,2), -------------------------------Preço do emprestimo do livro--
     Data_Atualizacao    DATE            -------------------------------Data da ultima atualizacao do preço--
 );
 
-CREATE TABLE Emprestimos_Oline ( 
+CREATE TABLE Emprestimos_Online ( 
     Emprestimo_Online   INT PRIMARY KEY IDENTITY, -------------------------Chave primaria são chaves únicas que não mudam--
     Livro_ID            INT FOREIGN KEY REFERENCES Livros(Livro_ID),  ---- Fazendo uma referencia a tabela Livros usando o FOREING--
     Usuario_ID          INT FOREIGN key REFERENCES Usuarios(Usuario_ID), --Fazendo uma referencia a tabela Usuarios usando o FOREING--
     Data_Emprestimo     DATE,
     Data_Devolucao      DATE,
-    Valor_Emprestimmo   DECIMAL (10,2), -----------------------------------Valor do emprestimo online--
+    Valor_Emprestimmo   NUMERIC (10,2), -----------------------------------Valor do emprestimo online--
     STATUS              VARCHAR (50)    -----------------------------------Status do emprestimos online( Em andamento, Concluido, Atrasado)--
 );
 
